@@ -15,9 +15,9 @@ extension BerlinClock.SecondState {
 extension BerlinClock.HourBlockState {
   var fillColor: Color {
     switch self {
-    case .filled:
+    case .illuminated:
       return .red
-    case .empty:
+    case .off:
       return .clear
     }
   }

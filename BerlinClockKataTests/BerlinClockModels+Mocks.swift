@@ -5,123 +5,123 @@ extension BerlinClock.HourState {
   static let expectedStateByHourValue: [Self] = [
     // 0
     .init(
-      topRow: [.empty, .empty, .empty, .empty],
-      bottomRow: [.empty, .empty, .empty, .empty]
+      topRow: [.off, .off, .off, .off],
+      bottomRow: [.off, .off, .off, .off]
     ),
     // 1
     .init(
-      topRow: [.empty, .empty, .empty, .empty],
-      bottomRow: [.filled, .empty, .empty, .empty]
+      topRow: [.off, .off, .off, .off],
+      bottomRow: [.illuminated, .off, .off, .off]
     ),
     // 2
     .init(
-      topRow: [.empty, .empty, .empty, .empty],
-      bottomRow: [.filled, .filled, .empty, .empty]
+      topRow: [.off, .off, .off, .off],
+      bottomRow: [.illuminated, .illuminated, .off, .off]
     ),
     // 3
     .init(
-      topRow: [.empty, .empty, .empty, .empty],
-      bottomRow: [.filled, .filled, .filled, .empty]
+      topRow: [.off, .off, .off, .off],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .off]
     ),
     // 4
     .init(
-      topRow: [.empty, .empty, .empty, .empty],
-      bottomRow: [.filled, .filled, .filled, .filled]
+      topRow: [.off, .off, .off, .off],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .illuminated]
     ),
     // 5
     .init(
-      topRow: [.filled, .empty, .empty, .empty],
-      bottomRow: [.empty, .empty, .empty, .empty]
+      topRow: [.illuminated, .off, .off, .off],
+      bottomRow: [.off, .off, .off, .off]
     ),
     // 6
     .init(
-      topRow: [.filled, .empty, .empty, .empty],
-      bottomRow: [.filled, .empty, .empty, .empty]
+      topRow: [.illuminated, .off, .off, .off],
+      bottomRow: [.illuminated, .off, .off, .off]
     ),
     // 7
     .init(
-      topRow: [.filled, .empty, .empty, .empty],
-      bottomRow: [.filled, .filled, .empty, .empty]
+      topRow: [.illuminated, .off, .off, .off],
+      bottomRow: [.illuminated, .illuminated, .off, .off]
     ),
     // 8
     .init(
-      topRow: [.filled, .empty, .empty, .empty],
-      bottomRow: [.filled, .filled, .filled, .empty]
+      topRow: [.illuminated, .off, .off, .off],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .off]
     ),
     // 9
     .init(
-      topRow: [.filled, .empty, .empty, .empty],
-      bottomRow: [.filled, .filled, .filled, .filled]
+      topRow: [.illuminated, .off, .off, .off],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .illuminated]
     ),
     // 10
     .init(
-      topRow: [.filled, .filled, .empty, .empty],
-      bottomRow: [.empty, .empty, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .off, .off],
+      bottomRow: [.off, .off, .off, .off]
     ),
     // 11
     .init(
-      topRow: [.filled, .filled, .empty, .empty],
-      bottomRow: [.filled, .empty, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .off, .off],
+      bottomRow: [.illuminated, .off, .off, .off]
     ),
     // 12
     .init(
-      topRow: [.filled, .filled, .empty, .empty],
-      bottomRow: [.filled, .filled, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .off, .off],
+      bottomRow: [.illuminated, .illuminated, .off, .off]
     ),
     // 13
     .init(
-      topRow: [.filled, .filled, .empty, .empty],
-      bottomRow: [.filled, .filled, .filled, .empty]
+      topRow: [.illuminated, .illuminated, .off, .off],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .off]
     ),
     // 14
     .init(
-      topRow: [.filled, .filled, .empty, .empty],
-      bottomRow: [.filled, .filled, .filled, .filled]
+      topRow: [.illuminated, .illuminated, .off, .off],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .illuminated]
     ),
     // 15
     .init(
-      topRow: [.filled, .filled, .filled, .empty],
-      bottomRow: [.empty, .empty, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .illuminated, .off],
+      bottomRow: [.off, .off, .off, .off]
     ),
     // 16
     .init(
-      topRow: [.filled, .filled, .filled, .empty],
-      bottomRow: [.filled, .empty, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .illuminated, .off],
+      bottomRow: [.illuminated, .off, .off, .off]
     ),
     // 17
     .init(
-      topRow: [.filled, .filled, .filled, .empty],
-      bottomRow: [.filled, .filled, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .illuminated, .off],
+      bottomRow: [.illuminated, .illuminated, .off, .off]
     ),
     // 18
     .init(
-      topRow: [.filled, .filled, .filled, .empty],
-      bottomRow: [.filled, .filled, .filled, .empty]
+      topRow: [.illuminated, .illuminated, .illuminated, .off],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .off]
     ),
     // 19
     .init(
-      topRow: [.filled, .filled, .filled, .empty],
-      bottomRow: [.filled, .filled, .filled, .filled]
+      topRow: [.illuminated, .illuminated, .illuminated, .off],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .illuminated]
     ),
     // 20
     .init(
-      topRow: [.filled, .filled, .filled, .filled],
-      bottomRow: [.empty, .empty, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .illuminated, .illuminated],
+      bottomRow: [.off, .off, .off, .off]
     ),
     // 21
     .init(
-      topRow: [.filled, .filled, .filled, .filled],
-      bottomRow: [.filled, .empty, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .illuminated, .illuminated],
+      bottomRow: [.illuminated, .off, .off, .off]
     ),
     // 22
     .init(
-      topRow: [.filled, .filled, .filled, .filled],
-      bottomRow: [.filled, .filled, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .illuminated, .illuminated],
+      bottomRow: [.illuminated, .illuminated, .off, .off]
     ),
     // 23
     .init(
-      topRow: [.filled, .filled, .filled, .filled],
-      bottomRow: [.filled, .filled, .filled, .empty]
+      topRow: [.illuminated, .illuminated, .illuminated, .illuminated],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .off]
     ),
   ]
 }

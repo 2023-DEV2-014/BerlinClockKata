@@ -23,7 +23,7 @@ extension PartialRoundedRectangle {
     } else if currentIndex == itemCount - 1 {
       return .init(corners: [.topRight, .bottomRight])
     } else {
-      return .init()
+      return .init(corners: [])
     }
   }
 }

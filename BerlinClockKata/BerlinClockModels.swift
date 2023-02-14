@@ -16,17 +16,18 @@ extension BerlinClock {
 extension BerlinClock {
   /// Filled state for a single hour block
   enum HourBlockState: Equatable {
-    case filled
-    case empty
+    case illuminated
+    case off
   }
   
+  /// State that represents the hours on a Berlin Clock
   struct HourState: Equatable {
     let topRow: [HourBlockState]
     let bottomRow: [HourBlockState]
     
     init(
-      topRow: [HourBlockState] = [.empty, .empty, .empty, .empty],
-      bottomRow: [HourBlockState] = [.empty, .empty, .empty, .empty]
+      topRow: [HourBlockState] = [.off, .off, .off, .off],
+      bottomRow: [HourBlockState] = [.off, .off, .off, .off]
     ) {
       self.topRow = topRow
       self.bottomRow = bottomRow
@@ -37,11 +38,11 @@ extension BerlinClock {
       let topRowFilledCount = hour / 5
       let bottomRowFilledCount = hour % 5
       let topRow: [HourBlockState] =
-        (0 ..< topRowFilledCount).map { _ in .filled } +
-        (topRowFilledCount ..< 4).map { _ in .empty }
+        (0 ..< topRowFilledCount).map { _ in .illuminated } +
+        (topRowFilledCount ..< 4).map { _ in .off }
       let bottomRow: [HourBlockState] =
-        (0 ..< bottomRowFilledCount).map { _ in .filled } +
-        (bottomRowFilledCount ..< 4).map { _ in .empty }
+        (0 ..< bottomRowFilledCount).map { _ in .illuminated } +
+        (bottomRowFilledCount ..< 4).map { _ in .off }
       self = .init(topRow: topRow, bottomRow: bottomRow)
     }
   }

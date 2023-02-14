@@ -34,8 +34,8 @@ final class BerlinClockKataTests: XCTestCase {
     )
     XCTAssertEqual(clock.secondState, .illuminated)
     XCTAssertEqual(clock.hourState, .init(
-      topRow: [.filled, .filled, .empty, .empty],
-      bottomRow: [.empty, .empty, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .off, .off],
+      bottomRow: [.off, .off, .off, .off]
     ))
     XCTAssertEqual(clock.displayedTime, "10:11:12")
     
@@ -45,8 +45,8 @@ final class BerlinClockKataTests: XCTestCase {
     )
     XCTAssertEqual(clock.secondState, .off)
     XCTAssertEqual(clock.hourState, .init(
-      topRow: [.filled, .filled, .filled, .empty],
-      bottomRow: [.filled, .empty, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .illuminated, .off],
+      bottomRow: [.illuminated, .off, .off, .off]
     ))
     XCTAssertEqual(clock.displayedTime, "16:11:13")
   }
@@ -60,8 +60,8 @@ final class BerlinClockKataTests: XCTestCase {
     )
     XCTAssertEqual(clock.secondState, .illuminated)
     XCTAssertEqual(clock.hourState, .init(
-      topRow: [.filled, .filled, .empty, .empty],
-      bottomRow: [.empty, .empty, .empty, .empty]
+      topRow: [.illuminated, .illuminated, .off, .off],
+      bottomRow: [.off, .off, .off, .off]
     ))
     XCTAssertEqual(clock.displayedTime, "10:11:12")
     
@@ -70,8 +70,8 @@ final class BerlinClockKataTests: XCTestCase {
     MockTimer.currentTimer.fire()
     XCTAssertEqual(clock.secondState, .off)
     XCTAssertEqual(clock.hourState, .init(
-      topRow: [.filled, .filled, .filled, .empty],
-      bottomRow: [.filled, .filled, .filled, .filled]
+      topRow: [.illuminated, .illuminated, .illuminated, .off],
+      bottomRow: [.illuminated, .illuminated, .illuminated, .illuminated]
     ))
     XCTAssertEqual(clock.displayedTime, "19:11:13")
   }
