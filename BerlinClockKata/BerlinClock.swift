@@ -7,6 +7,8 @@ class BerlinClock: ObservableObject {
 
   /// The state for a second indicator (illuminated/off)
   @Published var secondState: SecondState = .off
+  /// The state for the hours indicators
+  @Published var hourState: HourState = .init()
   /// The current time display value
   @Published var displayedTime: String = ""
   
@@ -43,6 +45,7 @@ class BerlinClock: ObservableObject {
   
   // MARK: - Interface
   
+  /// Starts the clock so that it updates as time passes
   func start() {
     guard self.timeTimer == nil
     else { return }
@@ -57,6 +60,7 @@ class BerlinClock: ObservableObject {
   @objc private func update() {
     let timeDate = self.currentTime()
     self.secondState = .state(for: timeDate)
+    self.hourState = .init(date: timeDate)
     self.displayedTime = self.dateFormatter.string(from: timeDate)
   }
 }

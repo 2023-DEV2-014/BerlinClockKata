@@ -12,3 +12,28 @@ extension BerlinClock {
     }
   }
 }
+
+extension BerlinClock {
+  /// Filled state for a single hour block
+  enum HourBlockState: Equatable {
+    case filled
+    case empty
+  }
+  
+  struct HourState: Equatable {
+    let topRow: [HourBlockState]
+    let bottomRow: [HourBlockState]
+    
+    init(
+      topRow: [HourBlockState] = [.empty, .empty, .empty, .empty],
+      bottomRow: [HourBlockState] = [.empty, .empty, .empty, .empty]
+    ) {
+      self.topRow = topRow
+      self.bottomRow = bottomRow
+    }
+
+    init(date: Date) {
+      self = .init()
+    }
+  }
+}

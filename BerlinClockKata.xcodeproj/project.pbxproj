@@ -17,6 +17,7 @@
 		034DC38C299B9DD500CB21DB /* MockTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC38B299B9DD500CB21DB /* MockTimer.swift */; };
 		034DC38E299BA86C00CB21DB /* BerlinClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC38D299BA86C00CB21DB /* BerlinClockView.swift */; };
 		034DC390299BAA9300CB21DB /* BerlinClockModels+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC38F299BAA9300CB21DB /* BerlinClockModels+UI.swift */; };
+		034DC392299BB3A500CB21DB /* BerlinClockModels+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC391299BB3A500CB21DB /* BerlinClockModels+Mocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		034DC38B299B9DD500CB21DB /* MockTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimer.swift; sourceTree = "<group>"; };
 		034DC38D299BA86C00CB21DB /* BerlinClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockView.swift; sourceTree = "<group>"; };
 		034DC38F299BAA9300CB21DB /* BerlinClockModels+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BerlinClockModels+UI.swift"; sourceTree = "<group>"; };
+		034DC391299BB3A500CB21DB /* BerlinClockModels+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BerlinClockModels+Mocks.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				034DC368299B8EC200CB21DB /* BerlinClockKataTests.swift */,
+				034DC391299BB3A500CB21DB /* BerlinClockModels+Mocks.swift */,
 				034DC38B299B9DD500CB21DB /* MockTimer.swift */,
 			);
 			path = BerlinClockKataTests;
@@ -229,6 +232,7 @@
 			files = (
 				034DC369299B8EC200CB21DB /* BerlinClockKataTests.swift in Sources */,
 				034DC38C299B9DD500CB21DB /* MockTimer.swift in Sources */,
+				034DC392299BB3A500CB21DB /* BerlinClockModels+Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,12 +20,23 @@ final class BerlinClockKataTests: XCTestCase {
     XCTAssertEqual(state, .illuminated)
   }
   
+  func testHourState_whenCreatedFromDate_valuesAreCorrect() {
+    for hour in 0 ..< 24 {
+      let state = BerlinClock.HourState(date: .date(withHour: hour, minute: 30, second: 30))
+      XCTAssertEqual(state, .expectedStateByHourValue[hour])
+    }
+  }
+  
   func testClock_whenCreated_initialValuesAreCorrect() {
     var clock = BerlinClock(
       currentTime: { .date(withHour: 10, minute: 11, second: 12) },
       locale: Locale(languageComponents: .init(language: .init(identifier: "fr")))
     )
     XCTAssertEqual(clock.secondState, .illuminated)
+    XCTAssertEqual(clock.hourState, .init(
+      topRow: [.filled, .filled, .empty, .empty],
+      bottomRow: [.empty, .empty, .empty, .empty]
+    ))
     XCTAssertEqual(clock.displayedTime, "10:11:12")
     
     clock = BerlinClock(
@@ -33,6 +44,10 @@ final class BerlinClockKataTests: XCTestCase {
       locale: Locale(languageComponents: .init(language: .init(identifier: "fr")))
     )
     XCTAssertEqual(clock.secondState, .off)
+    XCTAssertEqual(clock.hourState, .init(
+      topRow: [.filled, .filled, .filled, .empty],
+      bottomRow: [.filled, .empty, .empty, .empty]
+    ))
     XCTAssertEqual(clock.displayedTime, "16:11:13")
   }
   
@@ -44,16 +59,21 @@ final class BerlinClockKataTests: XCTestCase {
       timerProvider: MockTimer.self
     )
     XCTAssertEqual(clock.secondState, .illuminated)
+    XCTAssertEqual(clock.hourState, .init(
+      topRow: [.filled, .filled, .empty, .empty],
+      bottomRow: [.empty, .empty, .empty, .empty]
+    ))
     XCTAssertEqual(clock.displayedTime, "10:11:12")
     
     clock.start()
-    XCTAssertEqual(clock.secondState, .illuminated)
-    XCTAssertEqual(clock.displayedTime, "10:11:12")
-    
-    currentDate = .date(withHour: 10, minute: 11, second: 13)
+    currentDate = .date(withHour: 19, minute: 11, second: 13)
     MockTimer.currentTimer.fire()
     XCTAssertEqual(clock.secondState, .off)
-    XCTAssertEqual(clock.displayedTime, "10:11:13")
+    XCTAssertEqual(clock.hourState, .init(
+      topRow: [.filled, .filled, .filled, .empty],
+      bottomRow: [.filled, .filled, .filled, .filled]
+    ))
+    XCTAssertEqual(clock.displayedTime, "19:11:13")
   }
 }
 
