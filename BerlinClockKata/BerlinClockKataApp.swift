@@ -4,7 +4,7 @@ import SwiftUI
 struct BerlinClockKataApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      BerlinClockView(clock: .init())
     }
   }
 }

@@ -44,6 +44,9 @@ class BerlinClock: ObservableObject {
   // MARK: - Interface
   
   func start() {
+    guard self.timeTimer == nil
+    else { return }
+
     self.timeTimer = self.timerProvider.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [unowned self] _ in
       self.update()
     }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		034DC357299B8EC200CB21DB /* BerlinClockKataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC356299B8EC200CB21DB /* BerlinClockKataApp.swift */; };
-		034DC359299B8EC200CB21DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC358299B8EC200CB21DB /* ContentView.swift */; };
 		034DC35B299B8EC200CB21DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034DC35A299B8EC200CB21DB /* Assets.xcassets */; };
 		034DC35F299B8EC200CB21DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034DC35E299B8EC200CB21DB /* Preview Assets.xcassets */; };
 		034DC369299B8EC200CB21DB /* BerlinClockKataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC368299B8EC200CB21DB /* BerlinClockKataTests.swift */; };
@@ -16,6 +15,8 @@
 		034DC386299B921700CB21DB /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC385299B921700CB21DB /* Date+Utils.swift */; };
 		034DC38A299B988D00CB21DB /* BerlinClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC389299B988D00CB21DB /* BerlinClock.swift */; };
 		034DC38C299B9DD500CB21DB /* MockTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC38B299B9DD500CB21DB /* MockTimer.swift */; };
+		034DC38E299BA86C00CB21DB /* BerlinClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC38D299BA86C00CB21DB /* BerlinClockView.swift */; };
+		034DC390299BAA9300CB21DB /* BerlinClockModels+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC38F299BAA9300CB21DB /* BerlinClockModels+UI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +32,6 @@
 /* Begin PBXFileReference section */
 		034DC353299B8EC200CB21DB /* BerlinClockKata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BerlinClockKata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034DC356299B8EC200CB21DB /* BerlinClockKataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockKataApp.swift; sourceTree = "<group>"; };
-		034DC358299B8EC200CB21DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		034DC35A299B8EC200CB21DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		034DC35C299B8EC200CB21DB /* BerlinClockKata.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BerlinClockKata.entitlements; sourceTree = "<group>"; };
 		034DC35E299B8EC200CB21DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -41,6 +41,8 @@
 		034DC385299B921700CB21DB /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		034DC389299B988D00CB21DB /* BerlinClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClock.swift; sourceTree = "<group>"; };
 		034DC38B299B9DD500CB21DB /* MockTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimer.swift; sourceTree = "<group>"; };
+		034DC38D299BA86C00CB21DB /* BerlinClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerlinClockView.swift; sourceTree = "<group>"; };
+		034DC38F299BAA9300CB21DB /* BerlinClockModels+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BerlinClockModels+UI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,8 @@
 				034DC389299B988D00CB21DB /* BerlinClock.swift */,
 				034DC356299B8EC200CB21DB /* BerlinClockKataApp.swift */,
 				034DC383299B908E00CB21DB /* BerlinClockModels.swift */,
-				034DC358299B8EC200CB21DB /* ContentView.swift */,
+				034DC38F299BAA9300CB21DB /* BerlinClockModels+UI.swift */,
+				034DC38D299BA86C00CB21DB /* BerlinClockView.swift */,
 				034DC385299B921700CB21DB /* Date+Utils.swift */,
 				034DC35A299B8EC200CB21DB /* Assets.xcassets */,
 				034DC35C299B8EC200CB21DB /* BerlinClockKata.entitlements */,
@@ -214,8 +217,9 @@
 				034DC384299B908E00CB21DB /* BerlinClockModels.swift in Sources */,
 				034DC38A299B988D00CB21DB /* BerlinClock.swift in Sources */,
 				034DC386299B921700CB21DB /* Date+Utils.swift in Sources */,
-				034DC359299B8EC200CB21DB /* ContentView.swift in Sources */,
 				034DC357299B8EC200CB21DB /* BerlinClockKataApp.swift in Sources */,
+				034DC390299BAA9300CB21DB /* BerlinClockModels+UI.swift in Sources */,
+				034DC38E299BA86C00CB21DB /* BerlinClockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
