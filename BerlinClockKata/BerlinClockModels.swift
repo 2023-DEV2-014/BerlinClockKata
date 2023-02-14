@@ -33,7 +33,16 @@ extension BerlinClock {
     }
 
     init(date: Date) {
-      self = .init()
+      let hour = date.hour
+      let topRowFilledCount = hour / 5
+      let bottomRowFilledCount = hour % 5
+      let topRow: [HourBlockState] =
+        (0 ..< topRowFilledCount).map { _ in .filled } +
+        (topRowFilledCount ..< 4).map { _ in .empty }
+      let bottomRow: [HourBlockState] =
+        (0 ..< bottomRowFilledCount).map { _ in .filled } +
+        (bottomRowFilledCount ..< 4).map { _ in .empty }
+      self = .init(topRow: topRow, bottomRow: bottomRow)
     }
   }
 }

@@ -11,3 +11,14 @@ extension BerlinClock.SecondState {
     }
   }
 }
+
+extension BerlinClock.HourBlockState {
+  var fillColor: Color {
+    switch self {
+    case .filled:
+      return .red
+    case .empty:
+      return .clear
+    }
+  }
+}
