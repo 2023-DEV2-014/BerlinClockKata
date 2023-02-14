@@ -2,7 +2,7 @@ import SwiftUI
 
 /// Rounded rectangle shape that allows to target specific corners
 struct PartialRoundedRectangle: Shape {
-  var radius: CGFloat = 20
+  var radius: CGFloat = 15
   var corners: UIRectCorner = .allCorners
   
   func path(in rect: CGRect) -> Path {

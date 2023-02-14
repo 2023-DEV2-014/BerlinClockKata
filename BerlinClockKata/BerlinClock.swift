@@ -6,18 +6,20 @@ class BerlinClock: ObservableObject {
   // MARK: - Published properties
 
   /// The state for a second indicator (illuminated/off)
-  @Published var secondState: SecondState = .off
+  @Published private(set) var secondState: SecondState = .off
   /// The state for the hours indicators
-  @Published var hourState: HourState = .init()
+  @Published private(set) var hourState: HourState = .init()
   /// The state of the minutes indicators
-  @Published var minuteState: MinuteState = .init()
+  @Published private(set) var minuteState: MinuteState = .init()
   /// The current time display value
-  @Published var displayedTime: String = ""
+  @Published private(set) var displayedTime: String = ""
   
   // MARK: - Private properties
   
   private let dateFormatter: DateFormatter
   private var timeTimer: Timer? = nil
+  private var lastProcessedHourValue: Int?
+  private var lastProcessedMinuteValue: Int?
   
   // MARK: - Dependencies
   
@@ -52,18 +54,42 @@ class BerlinClock: ObservableObject {
     guard self.timeTimer == nil
     else { return }
 
-    self.timeTimer = self.timerProvider.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [unowned self] _ in
-      self.update()
+    // Using a Timer to tick every second is OK, but the tick rate might be seriously
+    // out of sync with the system clock.
+    // To avoid this, we fire the very first timer not after 1 second, but after the time between
+    // now and the next full second.
+    // Once this first timer has fired, we then resume with a normal 1 second interval, repeated timer.
+    let now = Date()
+    let nextSecond = now.timeIntervalSince1970.rounded(.down) + 1
+    let missingTimeUntilNextSecond = nextSecond - now.timeIntervalSince1970
+    self.timeTimer = self.timerProvider.scheduledTimer(withTimeInterval: missingTimeUntilNextSecond, repeats: false) { [unowned self] _ in
+      self.firstUpdate()
     }
   }
   
   // MARK: - Update
   
-  @objc private func update() {
+  private func firstUpdate() {
+    self.timeTimer = self.timerProvider.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [unowned self] _ in
+      self.update()
+    }
+    self.update()
+  }
+
+  private func update() {
     let timeDate = self.currentTime()
     self.secondState = .state(for: timeDate)
-    self.hourState = .init(date: timeDate)
-    self.minuteState = .init(date: timeDate)
     self.displayedTime = self.dateFormatter.string(from: timeDate)
+
+    // Avoid re-calculating the hour state if the hour unit has not changed since last update
+    if self.lastProcessedHourValue != timeDate.hour {
+      self.hourState = .init(date: timeDate)
+      self.lastProcessedHourValue = timeDate.hour
+    }
+    // Avoid re-calculating the minute state if the minute unit has not changed since last update
+    if self.lastProcessedMinuteValue != timeDate.minute {
+      self.minuteState = .init(date: timeDate)
+      self.lastProcessedMinuteValue = timeDate.minute
+    }
   }
 }

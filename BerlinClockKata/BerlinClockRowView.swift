@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct BerlinClockHourRowView: View {
-  let row: [BerlinClock.HourBlockState]
+struct BerlinClockRowView: View {
+  let row: [FillColorProvider]
 
   var body: some View {
     HStack {

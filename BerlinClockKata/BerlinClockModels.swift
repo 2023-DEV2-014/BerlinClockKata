@@ -55,6 +55,10 @@ extension BerlinClock {
     case marked
     case illuminated
     case off
+    
+    static func filledState(forIndex index: Int) -> Self {
+      (index + 1).isMultiple(of: 3) ? .marked : .illuminated
+    }
   }
   
   /// State that represents the minutes on a Berlin Clock
@@ -71,7 +75,16 @@ extension BerlinClock {
     }
     
     init(date: Date) {
-      self = .init()
+      let minute = date.minute
+      let topRowFilledCount = minute / 5
+      let bottomRowFilledCount = minute % 5
+      let topRow: [MinuteBlockState] =
+        (0 ..< topRowFilledCount).map { index in .filledState(forIndex: index) } +
+        (topRowFilledCount ..< 11).map { _ in .off }
+      let bottomRow: [MinuteBlockState] =
+        (0 ..< bottomRowFilledCount).map { _ in .illuminated } +
+        (bottomRowFilledCount ..< 4).map { _ in .off }
+      self = .init(topRow: topRow, bottomRow: bottomRow)
     }
   }
 }

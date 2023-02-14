@@ -27,6 +27,15 @@ final class BerlinClockKataTests: XCTestCase {
     }
   }
   
+  func testMinuteBlockState_whenCreatedFromIndex_valueIsCorrect() {
+    XCTAssertEqual(BerlinClock.MinuteBlockState.illuminated, .filledState(forIndex: 0))
+    XCTAssertEqual(BerlinClock.MinuteBlockState.illuminated, .filledState(forIndex: 1))
+    XCTAssertEqual(BerlinClock.MinuteBlockState.marked, .filledState(forIndex: 2))
+    XCTAssertEqual(BerlinClock.MinuteBlockState.illuminated, .filledState(forIndex: 3))
+    XCTAssertEqual(BerlinClock.MinuteBlockState.illuminated, .filledState(forIndex: 4))
+    XCTAssertEqual(BerlinClock.MinuteBlockState.marked, .filledState(forIndex: 5))
+  }
+  
   func testMinuteState_whenCreatedFromDate_valuesAreCorrect() {
     for minute in 0 ... 30 {
       let state = BerlinClock.MinuteState(date: .date(withHour: 10, minute: minute, second: 30))
