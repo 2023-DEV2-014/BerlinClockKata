@@ -14,8 +14,8 @@ extension BerlinClock {
 }
 
 extension BerlinClock {
-  /// Filled state for a single hour block
-  enum HourBlockState: Equatable {
+  /// Illumination state for a single hour block
+  enum HourBlockState {
     case illuminated
     case off
   }
@@ -44,6 +44,34 @@ extension BerlinClock {
         (0 ..< bottomRowFilledCount).map { _ in .illuminated } +
         (bottomRowFilledCount ..< 4).map { _ in .off }
       self = .init(topRow: topRow, bottomRow: bottomRow)
+    }
+  }
+}
+
+extension BerlinClock {
+  /// Illumination state for a single minute block.
+  enum MinuteBlockState {
+    /// Illumunated for a 15 minutes threshold
+    case marked
+    case illuminated
+    case off
+  }
+  
+  /// State that represents the minutes on a Berlin Clock
+  struct MinuteState: Equatable {
+    let topRow: [MinuteBlockState]
+    let bottomRow: [MinuteBlockState]
+    
+    init(
+      topRow: [MinuteBlockState] = [.off, .off, .off, .off, .off, .off, .off, .off, .off, .off, .off],
+      bottomRow: [MinuteBlockState] = [.off, .off, .off, .off]
+    ) {
+      self.topRow = topRow
+      self.bottomRow = bottomRow
+    }
+    
+    init(date: Date) {
+      self = .init()
     }
   }
 }

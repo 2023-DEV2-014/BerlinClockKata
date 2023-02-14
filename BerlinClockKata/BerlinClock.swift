@@ -9,6 +9,8 @@ class BerlinClock: ObservableObject {
   @Published var secondState: SecondState = .off
   /// The state for the hours indicators
   @Published var hourState: HourState = .init()
+  /// The state of the minutes indicators
+  @Published var minuteState: MinuteState = .init()
   /// The current time display value
   @Published var displayedTime: String = ""
   
@@ -61,6 +63,7 @@ class BerlinClock: ObservableObject {
     let timeDate = self.currentTime()
     self.secondState = .state(for: timeDate)
     self.hourState = .init(date: timeDate)
+    self.minuteState = .init(date: timeDate)
     self.displayedTime = self.dateFormatter.string(from: timeDate)
   }
 }

@@ -15,7 +15,7 @@ struct PartialRoundedRectangle: Shape {
   }
 }
 
-/// Helper to rounded the appropriate corners for a row of indicators in a berlin clock
+/// Helper to rounded the appropriate corners for a row of indicators in a Berlin Clock
 extension PartialRoundedRectangle {
   static func rectangleInRow(currentIndex: Int, itemCount: Int) -> Self {
     if currentIndex == 0 {
