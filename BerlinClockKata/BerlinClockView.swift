@@ -8,23 +8,20 @@ struct BerlinClockView: View {
       Circle()
         .strokeBorder(.gray, lineWidth: 2.0)
         .background(Circle().fill(self.clock.secondState.fillColor))
-        .frame(width: 100, height: 100)
+        .frame(height: 100)
       BerlinClockRowView(row: self.clock.hourState.topRow)
         .frame(height: 50)
-        .padding(.horizontal)
       BerlinClockRowView(row: self.clock.hourState.bottomRow)
         .frame(height: 50)
-        .padding(.horizontal)
       BerlinClockRowView(row: self.clock.minuteState.topRow)
         .frame(height: 50)
-        .padding(.horizontal)
       BerlinClockRowView(row: self.clock.minuteState.bottomRow)
         .frame(height: 50)
-        .padding(.horizontal)
       Text(clock.displayedTime)
         .font(.largeTitle)
         .padding(.top, 30)
     }
+    .padding(.horizontal)
     .onAppear { self.clock.start() }
   }
 }
